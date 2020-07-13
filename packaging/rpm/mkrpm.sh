@@ -6,7 +6,7 @@ flexgw_refs="origin/master"
 package_name="flexgw"
 flexgw_version="1.0.0"
 flexgw_release="1"
-python_version="2.7.9"
+python_version="2.7.18"
 python_dir="/usr/local/flexgw/python"
 
 curdir=$(pwd)
