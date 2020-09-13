@@ -144,8 +144,8 @@ class VpnServer(object):
         return False
 
     def _reload_conf(self):
-        cmd = ['service', 'openvpn', 'reload']
-        message = u"VPN 服务重载失败！%s"
+        cmd = ['service', 'openvpn@server', 'reload']
+        message = u"VPN 服务重载失败！请手动执行 service openvpn@server stop 然后再 start %s"
         return self._exec(cmd, message)
 
     def _package_client_conf(self):
@@ -158,7 +158,7 @@ class VpnServer(object):
         if self.status:
             flash(u'服务已经启动！', 'info')
             return False
-        cmd = ['service', 'openvpn', 'start']
+        cmd = ['service', 'openvpn@server', 'start']
         message = u"VPN 服务启动失败！%s"
         return self._exec(cmd, message)
 
@@ -167,7 +167,7 @@ class VpnServer(object):
         if not self.status:
             flash(u'服务已经停止！', 'info')
             return False
-        cmd = ['service', 'openvpn', 'stop']
+        cmd = ['service', 'openvpn@server', 'stop']
         message = u"VPN 服务停止失败！%s"
         return self._exec(cmd, message)
 
